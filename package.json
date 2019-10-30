@@ -1,0 +1,21 @@
+{
+  "name": "samromur-stats",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "concurrently -p \"[{name}]\" -n \"BE,FE\" -c \"bgBlue.bold,bgMagenta.bold\" \"cd backend && yarn dev\" \"cd frontend && yarn start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ollijonsson/samromur-stats.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ollijonsson/samromur-stats/issues"
+  },
+  "homepage": "https://github.com/ollijonsson/samromur-stats#readme",
+  "dependencies": {
+    "concurrently": "^5.0.0"
+  }
+}
