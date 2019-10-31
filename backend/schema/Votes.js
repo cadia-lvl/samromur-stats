@@ -23,8 +23,8 @@ cube(`Votes`, {
     },
     client_count: {
       title: `notendur`,
-      type: `count`,
-      sql: `DISTINCT client_id`
+      type: `countDistinct`,
+      sql: `client_id`
     }
   },
   dimensions: {

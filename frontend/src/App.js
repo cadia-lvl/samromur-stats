@@ -4,6 +4,7 @@ import { Container, Row, Col } from "reactstrap";
 import TotalClips from './numbers/totalClips';
 import TotalConfirmedClips from "./numbers/totalConfirmedClips";
 import TotalSpeakClients from './numbers/totalSpeakClients';
+import SpeakConvertionRate from './numbers/speakConvertionRate'
 
 import AgeChart from './charts/ageChart';
 import SexChart from './charts/sexChart';
@@ -21,8 +22,14 @@ class App extends Component {
           <Col sm="4">
             <TotalConfirmedClips />
           </Col>
+          
+        </Row>
+        <Row>
           <Col sm="4">
             <TotalSpeakClients />
+          </Col>
+          <Col sm="4">
+          <SpeakConvertionRate />
           </Col>
         </Row>
         <Row>
@@ -34,8 +41,11 @@ class App extends Component {
           </Col>
         </Row>
         <Row>
-          <Col sm="12">
+          <Col sm="6">
             <HourlyChart />
+          </Col>
+          <Col sm="6">
+            
           </Col>
         </Row>
       </Container>
