@@ -5,7 +5,7 @@ import cubejsApi from '../components/api';
 export const SpeakConvertion = () => (
 <Chart
     cubejsApi={cubejsApi}
-    title="Hlutfall nýrra heimsókna sem talar"
+    title="Recording convertion rate"
     query={{
         "measures": [
           "UserClients.speakConvertion"

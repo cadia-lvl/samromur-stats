@@ -11,7 +11,8 @@ cube(`Clips`, {
   measures: {
     count: {
       title: `fjöldi`,
-      type: `count`
+      type: `count`,
+      description: `recordings`
     },
     client_count: {
       title: `notendur`,
@@ -22,7 +23,7 @@ cube(`Clips`, {
       sql: `id`,
       type: `count`,
       rollingWindow: {
-        trailing: `1 week`
+        trailing: `unbounded`
       }
     },
     rollingCountHour: {
@@ -37,6 +38,12 @@ cube(`Clips`, {
       rollingWindow: {
         trailing: `unbounded`
       }
+    },
+    averageClipsPerClient: {
+      title: `Average clips per client`,
+      type: `number`,
+      sql: `${Clips.count} / ${Clips.client_count}`,
+      format: `percent`
     },
     ave: {
       title: `ave`,
@@ -55,10 +62,10 @@ cube(`Clips`, {
       type: `number`,
       case: {
         when: [
-          {sql: `${CUBE}.is_valid = '1'`, label: `Staðfest`},
-          {sql: `${CUBE}.is_valid = '0'`, label: `Hafnað`}
+          {sql: `${CUBE}.is_valid = '1'`, label: `Validated`},
+          {sql: `${CUBE}.is_valid = '0'`, label: `Invalidated`}
         ],
-        else: { label: `Óyfirfarið`}
+        else: { label: `Unconfirmed`}
       }
     },
     sex: {
@@ -66,11 +73,11 @@ cube(`Clips`, {
       type: `string`,
       case: {
         when: [
-            { sql: `${CUBE}.sex = 'karl'`, label: `Karl` },
-            { sql: `${CUBE}.sex = 'kona'`, label: `Kona` },
-            { sql: `${CUBE}.sex = 'annad'`, label: `Annað` },
+            { sql: `${CUBE}.sex = 'karl'`, label: `Male` },
+            { sql: `${CUBE}.sex = 'kona'`, label: `Female` },
+            { sql: `${CUBE}.sex = 'annad'`, label: `Other` },
         ],
-        else: { label: `Óuppgefið kyn` }
+        else: { label: `Undefined` }
         }
     },
     age: {
@@ -88,7 +95,17 @@ cube(`Clips`, {
             { sql: `${CUBE}.age = 'attraett'`, label: `80-89` },
             { sql: `${CUBE}.age = 'niraett'`, label: `90+` },
         ],
-        else: { label: `Óuppgefinn aldur` }
+        else: { label: `Undefined` }
+        },
+    },
+    native: {
+      title: `Móðurmál`,
+      type: `string`,
+      case: {
+        when: [
+            { sql: `${CUBE}.native_language = 'islenska'`, label: `Icelandic` },
+        ],
+        else: { label: `Other` }
         },
     },
     date: {
@@ -96,7 +113,7 @@ cube(`Clips`, {
       sql: `created_at`
     },
     hour: {
-      type: `number`,
+      type: `string`,
       sql: `HOUR(created_at)`
     }
   },

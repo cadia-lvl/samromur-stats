@@ -25,6 +25,12 @@ cube(`Votes`, {
       title: `notendur`,
       type: `countDistinct`,
       sql: `client_id`
+    },
+    averageVotesPerClient: {
+      title: `Average votes per client`,
+      type: `number`,
+      sql: `${Votes.count} / ${Votes.client_count}`,
+      format: `percent`
     }
   },
   dimensions: {

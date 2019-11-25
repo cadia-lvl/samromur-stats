@@ -12,7 +12,7 @@ import {
 export const HourlyChart = () => (
   <Chart
     cubejsApi={cubejsApi}
-    title="Upptökur yfir sólarhringinn síðustu vikuna"
+    title="Recording hours popularity"
     query={{
       "measures": [
         "Clips.rollingCountWeek"
@@ -30,7 +30,6 @@ export const HourlyChart = () => (
       "segments": []
     }}
     render={resultSet => { 
-      console.log(resultSet);
       return (
       <CartesianChart resultSet={resultSet} ChartComponent={AreaChart}>
         {resultSet.seriesNames().map((series, i) => (

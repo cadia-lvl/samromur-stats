@@ -59,6 +59,17 @@ cube(`UserClients`, {
       date: {
         type: `time`,
         sql: `created_at`
-      }
+      },
+      countBrackets: {
+        title: `Count brackets?`,
+        type: `number`,
+        case: {
+          when: [
+              { sql: `${Clips.count} = '5'`, label: `5` },
+              { sql: `${Clips.count} = '10'`, label: `10` }
+          ],
+          else: { label: `Undefined` }
+          },
+      },
     }
   });

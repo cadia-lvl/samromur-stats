@@ -5,7 +5,7 @@ import cubejsApi from '../components/api';
 export const TotalConfirmedClips = () => (
   <Chart
     cubejsApi={cubejsApi}
-    title="Staðfestar upptökur"
+    title="Validated utterances"
     query={{
       "measures": [
         "Clips.count"
@@ -19,7 +19,7 @@ export const TotalConfirmedClips = () => (
           "dimension": "Clips.votes",
           "operator": "equals",
           "values": [
-            "Staðfest"
+            "Validated"
           ]
         }
       ],

@@ -21,8 +21,6 @@ import {
   Line
 } from "recharts";
 
-import { numberFormatter } from './formatters';
-
 export const Chart = ({ cubejsApi, title, query, render }) => (
   <Card>
     <CardBody>
@@ -73,8 +71,4 @@ export const numberRender = ({ resultSet }) => (
         ))}
     </Col>
   </Row>
-);
-
-export const renderSingleValue = (resultSet, key) => (
-  <h1 height={300}>{numberFormatter(resultSet.chartPivot()[0][key])}</h1>
 );

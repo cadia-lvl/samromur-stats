@@ -27,7 +27,6 @@ export const SpeakConvertionChart = () => (
         "filters": []
       }}
     render={resultSet => { 
-      console.log(resultSet);
       return (
       <CartesianChart resultSet={resultSet} ChartComponent={AreaChart}>
         {resultSet.seriesNames().map((series, i) => (

@@ -12,7 +12,7 @@ import {
 export const AgeChart = () => (
   <Chart
     cubejsApi={cubejsApi}
-    title="Aldursdreifing"
+    title="Age distribution"
     query={{
       "measures": [
         "Clips.count"
@@ -26,7 +26,7 @@ export const AgeChart = () => (
           "dimension": "Clips.age",
           "operator": "notContains",
           "values": [
-            "Óuppgefinn"
+            "Undefined"
           ]
         }
       ],

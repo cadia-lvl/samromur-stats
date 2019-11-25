@@ -17,7 +17,7 @@ const colors = ['#629ff4', '#ff4f5e', '#59cbb7'];
 export const SexChart = () => (
   <Chart
     cubejsApi={cubejsApi}
-    title="Kynjadreifing"
+    title="Gender distribution"
     query={{
       "measures": [
         "Clips.count"
@@ -35,7 +35,7 @@ export const SexChart = () => (
           "dimension": "Clips.sex",
           "operator": "notContains",
           "values": [
-            "Óuppgefið kyn"
+            "Undefined"
           ]
         }
       ]
