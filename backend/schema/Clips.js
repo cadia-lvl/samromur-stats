@@ -85,6 +85,7 @@ cube(`Clips`, {
       type: `string`,
       case: {
         when: [
+            { sql: `${CUBE}.age = 'ungur_unglingur'`, label: `13-17` },
             { sql: `${CUBE}.age = 'unglingur'`, label: `18-19` },
             { sql: `${CUBE}.age = 'tvitugt'`, label: `20-29` },
             { sql: `${CUBE}.age = 'thritugt'`, label: `30-39` },
